@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - JYOTHSNA YADAV</title>
+    <meta name="description" content="Jyothsna Yadav  Frontend developer portfolio. HTML, CSS, JavaScript, responsive design and projects." />
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="index.html">
+    <link rel="icon" href="Images/favicon.svg" type="image/svg+xml">
+    <meta property="og:title" content="Jyothsna Yadav  Frontend Web Developer" />
+    <meta property="og:description" content="Portfolio of Jyothsna Yadav  frontend developer. Projects, skills, and contact for internships and junior roles." />
+    <meta property="og:image" content="Images/profile.svg" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Jyothsna Yadav","jobTitle":"Frontend Web Developer","url":"","sameAs":["https://github.com/jyothsnaayadav-tech","https://www.linkedin.com/in/jyothsnayadav"]}
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="./tailwind.config.js"></script>
+        <!-- jsPDF for client-side resume PDF generation -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <style>
+            /* Minimal dark mode overrides to preserve existing styles */
+            html.dark body{ background:#0b1220; color:#e6eef8; }
+            html.dark nav{ color:#e6eef8; }
+            html.dark .bg-white{ background-color:#0f1724 !important }
+            html.dark .border-gray-400{ border-color:rgba(255,255,255,0.06) !important }
+            html.dark a{ color:inherit }
+        </style>
+</head>
+<body class="overflow-x-hidden">
+    <div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]">
+        <img src="Images/bg-decor.svg" alt="decorative background" class="w-full">
+    </div>
+    <nav class="w-full fixed px-5 lg:px-8 lg:px-[8%] py-4 flex items-center justify-between z-50">
+                <img src="Images/logo.svg" alt="Jyothsna logo" height="500px"  width="500px" class="w-28 cursor-pointer mr-14">
+                <!-- Theme toggle -->
+                <button id="themeToggle" aria-label="Toggle theme" class="ml-4 hidden md:inline-flex">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="currentColor"/></svg>
+                </button>
+        <ul class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50">
+            <li><a href="#top">HOME</a></li>
+            <li><a href="#about">ABOUT ME</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#work">MY WORK</a></li>
+            <li><a href="#contact">CONTACT ME</a></li>
+        </ul>
+        <div class="flex items-center gap-4">
+            <button aria-label="open menu" onclick="openMenu()">
+                <img src="Images/menu.svg" alt="menu icon" class="w-6">
+            </button>
+            <a href="#contact" class="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4">
+                CONTACT
+                <img src="Images/icon-arrow.svg" alt="" class="w-3">
+            </a>
+        <button class="block md:hidden ml-3" onclick="openMenu()"><img src="Images/menu.svg" alt="menu icon" class="w-6"></button>
+        </div>
+<!-- -----------moblie menu ---------------- -->
+    <ul id="sideMenu" class="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500">
+        <div class="absolute right-6 top-6" onclick="closeMenu()">
+            <img src="Images/close.svg" alt="close menu" class="w-5 cursor-pointer">
+        </div>
+        <li><a href="#top" onclick="closeMenu()">HOME</a></li>
+        <li><a href="#about" onclick="closeMenu()">ABOUT ME</a></li>
+        <li><a href="#services" onclick="closeMenu()">SERVICES</a></li>
+        <li><a href="#work" onclick="closeMenu()">MY WORK</a></li>
+        <li><a href="#contact" onclick="closeMenu()">CONTACT ME</a></li>
+    </ul>
+    </nav>
+  <!-- -----------header ---------------- -->  
+    <div class="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
+     <img src="Images/profile.svg" alt="profile photo" class="rounded-full w-32">
+    <h3 class="flex items-center gap-2 text-xl md:text-2xl mb-3">Hi ! I'am Jyothsna Yadav <img src="Images/wave.svg" alt="wave" class="w-6"></h3>
+    <h1 class="text-3xl sm:text-6xl lg:text-[66px]">frontend web developer based in India.</h1>
+    <p class="max-w-2xl mx-auto"> I am a frontend developer from Banglore, Karnataka. As a fresher,
+         I am eager to contribute to dynamic web development projects , 
+         apply my techincal skills in HTML,CSS,JavaScript, and modern frameworks, 
+         and continuously learn to grow in the felid of front-end development.</p>
+            <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
+                <a href="#contact" id="contactBtn" class="px-10 py-3 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2">
+                <!-- message icon -->
+                <svg class="w-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z" fill="currentColor"/></svg>
+                contact me
+                </a>
+
+                <a href="#" id="resumeBtn" class="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white">
+                <!-- download icon -->
+                <svg class="w-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                my resume
+                </a>
+            </div>
+            <div class="mt-6 flex flex-wrap justify-center gap-2" aria-hidden="false">
+                <span class="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-800">HTML</span>
+                <span class="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-800">CSS</span>
+                <span class="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-800">JavaScript</span>
+                <span class="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-800">Python</span>
+                <span class="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-800">Git</span>
+            </div>
+   </div>
+  <!-- ----------- about me ---------------- -->  
+   <div id="about" class="w-full px-[12%] py-10 scroll-mt-25" >
+    <h4 class="text-center mb-2 text-lg">
+        Introduction
+    </h4>
+    <h2 class="text-center text-5xl">
+        About Me
+    </h2>
+    <div class="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
+        <div class="max-w-max mx-auto relative">
+            <img src="Images/profile.svg" alt="profile large" class="w-64 sm:w-80 rounded-3xl max-w-none">
+    </div>
+            <div class="flex-1">
+                <p class="mb-10 max-w-2xl"> I Am a recent graduate and fresher in the field,
+                I bring a solid foundation in HTML, CSS, JavaScript, and responsive web design 
+                principles.I have a strong passion for building clean, intuitive, and user-friendly 
+                interfaces that enhance user experience across devices.
+                </p>
+                <p class="mb-10 max-w-2xl">
+                I’m continuously learning and actively keeping up with the latest trends and tools in
+                front-end development, including Git, R Studio and VS Code. I’m currently seeking opportunities 
+                where I can contribute to innovative development teams, grow professionally, 
+                and make a meaningful impact through real-world projects.
+                </p>
+                <ul class="grid grid-cols-1 sm:grid-cols-auto gap-6 max-w-2xl">
+                    <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-[#fcf3ff] hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000]">
+                        <img src="Images/icon-languages.svg" alt="languages icon" class="w-7 mt-3">
+                        <h3 class="my-4 font-semibold text-gray-700">
+                            Languages
+                        </h3>                    
+                        <p class="text-gray-600 text-sm"> HTML , CSS, JavaScript</p>
+                    </li>
+                    <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-[#fcf3ff] hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000]">
+                        <img src="Images/icon-education.svg" alt="education icon" class="w-7 mt-3">
+                        <h3 class="my-4 font-semibold text-gray-700">
+                            Education
+                        </h3>                    
+                        <p class="text-gray-600 text-sm">BCA-Bachelor Of Computer Application</p>
+                    </li>
+                    <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-[#fcf3ff] hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000]">
+                        <img src="Images/icon-project.svg" alt="project icon" class="w-7 mt-3">
+                        <h3 class="my-4 font-semibold text-gray-700">
+                            Project
+                        </h3>                    
+                        <p class="text-gray-600 text-sm"> Mini Project:AI-Content-Writer</p>
+                    </li>
+                </ul>
+                <h4 class="my-6 text-gray-700">Tools I use</h4>
+                <ul class="flex flex-wrap items-center gap-3 sm:gap-5">
+                    <li class="flex flex-col items-center justify-center w-16 sm:w-20 aspect-square border border-gray-400 rounded-lg p-2 cursor-pointer hover:translate-y-1 duration-300 bg-white">
+                        <img src="Images/tool-html.svg" alt="HTML" class="w-7 sm:w-9">
+                        <span class="text-xs mt-1">HTML</span>
+                    </li>
+... (file continues)
